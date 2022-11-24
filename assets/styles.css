@@ -25,7 +25,10 @@ header img {
 	height: 200px;
 }
 
-
+.card-a{
+	text-decoration: none;
+	color: black;
+}
 
 .card {
 
