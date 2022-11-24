@@ -87,7 +87,7 @@ header img {
 }
 
 .card__picture {
-	width: 90%;
+	width: 100%;
 	margin: 0 auto;
 	position: relative;
 }
@@ -131,6 +131,7 @@ header img {
 @media (max-width: 768px) {
 	header {
 		height: 140px;
+		width: 100%;
 	}
 
 	header img {
@@ -138,5 +139,15 @@ header img {
 	}
 	.clock{
 		display: none;
+	}
+}
+
+@media (max-width: 320px) {
+	header {
+		height: 160px;
+		width: 100%;
+	}
+	header img {
+		height: 70px;
 	}
 }
