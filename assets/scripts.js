@@ -1,44 +1,38 @@
-$(document).ready(function(){
-    var zindex = 10;
-    
-    $("div.card").click(function(e){
-    
-  
-      var isShowing = false;
-  
-      if ($(this).hasClass("show")) {
-        isShowing = true
-      }
-  
-      if ($("div.cards").hasClass("showing")) {
-        // a card is already in view
-        $("div.card.show")
-          .removeClass("show");
-  
-        if (isShowing) {
-          // this card was showing - reset the grid
-          $("div.cards")
-            .removeClass("showing");
-        } else {
-          // this card isn't showing - get in with it
-          $(this)
-            .css({zIndex: zindex})
-            .addClass("show");
-  
-        }
-  
-        zindex++;
-  
-      } else {
-        // no cards in view
-        $("div.cards")
-          .addClass("showing");
-        $(this)
-          .css({zIndex:zindex})
-          .addClass("show");
-  
-        zindex++;
-      }
-      
-    });
-  });
+class DigitalClock {
+  constructor(element) {
+    this.element = element;
+  }
+
+  start() {
+    this.update();
+
+    setInterval(() => {
+      this.update();
+    }, 500);
+  }
+
+  update() {
+    const parts = this.getTimeParts();
+    const minuteFormatted = parts.minute.toString().padStart(2, "0");
+    const timeFormatted = `${parts.hour}:${minuteFormatted}`;
+    const amPm = parts.isAm ? "AM" : "PM";
+
+    this.element.querySelector(".clock-time").textContent = timeFormatted;
+    this.element.querySelector(".clock-ampm").textContent = amPm;
+  }
+
+  getTimeParts() {
+    const now = new Date();
+
+    return {
+      hour: now.getHours() % 12 || 12,
+      minute: now.getMinutes(),
+      isAm: now.getHours() < 12
+    };
+  }
+}
+
+const clockElement = document.querySelector(".clock");
+const clockObject = new DigitalClock(clockElement);
+
+clockObject.start();
