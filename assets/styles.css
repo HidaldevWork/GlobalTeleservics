@@ -10,22 +10,43 @@
 }
 
 header {
-	background-color: rgb(255, 255, 255);
-	height: 250px;
+	background-color: #f8f6f6;
+	height: 150px;
 	display: flex;
 	width: 100%;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-evenly;
 	box-shadow: 0.1px 0.1px 10px rgba(0, 0, 0, 0.3);
-
 	z-index: 1;
 }
 
 header img {
-	height: 200px;
+	height: 100px;
+	position: relative;
 }
 
-.card-a{
+.clock {
+	background: #FE958F;
+	width: 200px;
+	padding: 10px;
+	text-align: center;
+	border-radius: 10px;
+}
+
+.clock-time,
+.clock-ampm {
+	font-family: "Concert One", cursive;
+	font-size: 30px;
+	color: #ffffff;
+	
+}
+
+.clock-time {
+	font-size: 48px;
+}
+
+
+.card-a {
 	text-decoration: none;
 	color: black;
 }
@@ -33,14 +54,14 @@ header img {
 .card {
 
 	width: 90%;
+	height: 600px;
 	margin: 0 auto;
 	padding: 60px 0;
 	max-width: 1200px;
-	min-height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
-	gap: 3.5em;
+	gap: 20px;
 	flex-wrap: wrap;
 
 }
@@ -55,9 +76,9 @@ header img {
 	background-color: rgb(255, 255, 255);
 	flex-basis: 280px;
 	flex-grow: 1;
-	max-width: 450px;
+	max-width: 300px;
 	box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
-	border-radius: 25px;
+	border-radius: 10px;
 	transition: all 400ms ease;
 	display: flex;
 	flex-direction: column;
@@ -103,15 +124,19 @@ header img {
 	font-weight: 500;
 	text-decoration: none;
 	color: rgb(255, 255, 255);
-	background-color: #F1B965;
+	background-color: #8BB6A3;
 	border-radius: 5px;
 }
 
-@media (max-width: 768px) { 
-	header{
+@media (max-width: 768px) {
+	header {
 		height: 140px;
 	}
+
 	header img {
 		height: 100px;
 	}
- }
+	.clock{
+		display: none;
+	}
+}
